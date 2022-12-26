@@ -1,4 +1,5 @@
 # CatsWar-Hacks
+If you don't want to compile this cheat you can download it from my [website](notcomplete.com)
 
 #### This software was made by
 GLUR
