@@ -30,6 +30,8 @@ If you don't want to use my shitty loader(I dont blame you) you can use any manu
 
 ### TroubleShooting
 * The Loader immediately closes after opening
+
 Just use one of the other loaders I've listed.
 * The game crashes
+
 Inject it again
