@@ -20,8 +20,8 @@ void initThread()
 
 	init.flowerNum = *init.flowerInit;
 
-	init.jumpMaxInit = (float*)GetPointerAddress(moduleAddress + playerOffset, { 0x0,0x20,0x2C0 });
-	init.jumpInit = (float*)GetPointerAddress(moduleAddress + playerOffset, { 0x0,0x20,0x348 });
+	init.jumpMaxInit = (int*)GetPointerAddress(moduleAddress + playerOffset, { 0x0,0x20,0x2C0 });
+	init.jumpInit = (int*)GetPointerAddress(moduleAddress + playerOffset, { 0x0,0x20,0x348 });
 
 	init.jumpMaxNum = *init.jumpMaxInit, init.jumpNum = *init.jumpInit;
 }
@@ -190,8 +190,8 @@ void airjumpThread()
 	{
 		if (cheats.bAirjump == true)
 		{
-			float* jumpmax = (float*)GetPointerAddress(moduleAddress + playerOffset, { 0x0,0x20,0x2C0 });
-			float* jump = (float*)GetPointerAddress(moduleAddress + playerOffset, { 0x0,0x20,0x348 });
+			int* jumpmax = (int*)GetPointerAddress(moduleAddress + playerOffset, { 0x0,0x20,0x2C0 });
+			int* jump = (int*)GetPointerAddress(moduleAddress + playerOffset, { 0x0,0x20,0x348 });
 			*jumpmax = config.jumpMaxNum;
 			*jump = config.jumpNum;
 		}
