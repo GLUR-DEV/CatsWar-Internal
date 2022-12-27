@@ -30,7 +30,8 @@ void MainThread()
     std::cout << "Keybinds:\n";
     std::cout << "[ctr + 1] For Unlimited Ammo\n";
     std::cout << "[ctr + 2] For Unlimited Health\n";
-    std::cout << "[ctr + 3] For Instant Win(You have to pick up a flower for it to register)\n\n";
+    std::cout << "[ctr + 3] For Instant Win(You have to pick up a flower for it to register)\n";
+    std::cout << "[ctr + 4] For Airjump\n\n";
 
     std::cout << "Log:\n";
 
