@@ -15,3 +15,4 @@ void initThread();
 void ammoThread();
 void healthThread();
 void flowerThread();
+void airjumpThread();
