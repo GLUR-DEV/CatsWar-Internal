@@ -12,6 +12,9 @@ struct
 
 	bool bFlower = false;
 	bool bFlowerInit = false;
+
+	bool bAirjump = false;
+	bool bAirjumpInit = false;
 } cheats;
 
 struct
@@ -22,6 +25,9 @@ struct
 	float healthNum = 6969;
 
 	float flowerNum = 10;
+
+	float jumpMaxNum = 6969;
+	float jumpNum = 0;
 } config;
 
 struct
@@ -33,10 +39,16 @@ struct
 
 	float* flowerInit;
 
+	float* jumpMaxInit;
+	float* jumpInit;
+
 	float ammoNum;
 	float magNum;
 
 	float healthNum;
 
 	float flowerNum;
+
+	float jumpMaxNum;
+	float jumpNum;
 } init;
