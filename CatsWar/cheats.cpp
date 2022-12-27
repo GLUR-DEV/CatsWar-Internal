@@ -19,6 +19,11 @@ void initThread()
 	init.flowerInit = (float*)GetPointerAddress(moduleAddress + playerOffset, { 0x0,0x20,0x530 });
 
 	init.flowerNum = *init.flowerInit;
+
+	init.jumpMaxInit = (float*)GetPointerAddress(moduleAddress + playerOffset, { 0x0,0x20,0x2C0 });
+	init.jumpInit = (float*)GetPointerAddress(moduleAddress + playerOffset, { 0x0,0x20,0x348 });
+
+	init.jumpMaxNum = *init.jumpMaxInit, init.jumpNum = *init.jumpInit;
 }
 
 void cheatThread()
@@ -29,6 +34,7 @@ void cheatThread()
 	std::thread thread1(ammoThread);
 	std::thread thread2(healthThread);
 	std::thread thread3(flowerThread);
+	std::thread thread4(airjumpThread);
 
 	while (true)
 	{
@@ -83,6 +89,24 @@ void cheatThread()
 			}
 
 			cheats.bFlower = !cheats.bFlower;
+			Sleep(delay);
+		}
+
+		if (GetAsyncKeyState(VK_CONTROL) & GetAsyncKeyState(0x34))
+		{
+			if (cheats.bAirjump == false)
+			{
+				std::cout << "[ctr + 4] Pressed. Airjump on.\n";
+				initThread();
+
+				cheats.bAirjumpInit = false;
+			}
+			else
+			{
+				std::cout << "[ctr + 4] Pressed. Airjump off.\n";
+			}
+
+			cheats.bAirjump = !cheats.bAirjump;
 			Sleep(delay);
 		}
 
@@ -153,6 +177,31 @@ void flowerThread()
 				*init.flowerInit = init.flowerNum;
 				
 				cheats.bFlowerInit = true;
+			}
+		}
+
+		Sleep(1);
+	}
+}
+
+void airjumpThread()
+{
+	while (true)
+	{
+		if (cheats.bAirjump == true)
+		{
+			float* jumpmax = (float*)GetPointerAddress(moduleAddress + playerOffset, { 0x0,0x20,0x2C0 });
+			float* jump = (float*)GetPointerAddress(moduleAddress + playerOffset, { 0x0,0x20,0x348 });
+			*jumpmax = config.jumpMaxNum;
+			*jump = config.jumpNum;
+		}
+		else
+		{
+			if (cheats.bAirjumpInit == false)
+			{
+				*init.jumpMaxInit = init.jumpMaxNum, *init.jumpInit = init.jumpNum;
+
+				cheats.bAirjumpInit = true;
 			}
 		}
 
