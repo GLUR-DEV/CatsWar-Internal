@@ -26,8 +26,8 @@ struct
 
 	float flowerNum = 10;
 
-	float jumpMaxNum = 6969;
-	float jumpNum = 0;
+	int jumpMaxNum = 6969;
+	int jumpNum = -1;
 } config;
 
 struct
@@ -39,8 +39,8 @@ struct
 
 	float* flowerInit;
 
-	float* jumpMaxInit;
-	float* jumpInit;
+	int* jumpMaxInit;
+	int* jumpInit;
 
 	float ammoNum;
 	float magNum;
@@ -49,6 +49,6 @@ struct
 
 	float flowerNum;
 
-	float jumpMaxNum;
-	float jumpNum;
+	int jumpMaxNum;
+	int jumpNum;
 } init;
