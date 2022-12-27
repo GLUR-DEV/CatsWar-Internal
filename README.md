@@ -8,6 +8,7 @@ GLUR
 * `Unlimited Ammo`
 * `Unlimited Health`
 * `Instant win`
+* `Airjump`
 
 ### TODO
 * Find speed offset
